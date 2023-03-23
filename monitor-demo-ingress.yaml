@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: monitor-demo-ingress
+  namespace: suxess-it-dev
+spec:
+  rules:
+  - host: monitor-demo-suxess-it-dev.apps.cluster1.mcp.pitagora.at
+    http:
+      paths:
+      - backend:
+          service:
+            name: monitor-demo
+            port:
+              number: 8080
+        path: /
+        pathType: Prefix

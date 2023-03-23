@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitor-demo
+  labels:
+    app: monitor-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: monitor-demo
+  template:
+    metadata:
+      labels:
+        app: monitor-demo
+    spec:
+      containers:
+      - image: quay.io/rbaumgar/monitor-demo-app-jvm
+        imagePullPolicy: Always
+        name: monitor-demo
